@@ -876,6 +876,9 @@ require('lazy').setup({
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
 
       vim.cmd.colorscheme 'catppuccin-mocha'
+
+      -- Remove bold and italic from visual selection
+      vim.api.nvim_set_hl(0, 'Visual', { fg = '#bac2de', bg = '#45475a' })
     end,
   },
 
@@ -991,3 +994,11 @@ require('lazy').setup({
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+vim.api.nvim_create_autocmd({'BufReadPost', 'BufNewFile'}, {
+  pattern = {'*.wistl'},
+  command = 'setfiletype wistl',
+})
+vim.api.nvim_create_autocmd({'BufReadPost', 'BufNewFile'}, {
+  pattern = {'*.wistl'},
+  command = 'setfiletype wistl',
+})
